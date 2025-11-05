@@ -1,6 +1,9 @@
+![Unity](https://img.shields.io/badge/Engine-Unity2019.4-blue?logo=unity)
+![CSharp](https://img.shields.io/badge/Language-C%23-brightgreen)
+![Platform](https://img.shields.io/badge/Platform-WebGL-lightgrey)
 # RiniExperimental
-Demo técnica desarrolada en Unity 2019.4.12f1, testeo basico de interacciones en unity, recreación de movimiento con Charactercontroler y Cinemamachine para movimintos y una cámara dinamica.
---
+Demo técnica desarrolada en Unity 2019.4.12f1, testeo basico de interacciones en unity, recreación de movimiento con Charactercontroler, Cinemamachine para movimintos y una cámara dinamica, sistema de serialización en binario y personalización en la interfaz grafica de los enemigos.
+---
 ## Scripts Principales
 -`Rini:MoverPj.cs` -> Sistema de movimiento 3D con CharacterController, control relativo a cámara con cinemachine, deslizamiento en rampas verticales, animaciones integradas (Idle, Salto, Ataque, Defensa), simulación de salto y gravedad.
 
@@ -10,7 +13,15 @@ Demo técnica desarrolada en Unity 2019.4.12f1, testeo basico de interacciones e
 
 -`MovimientoCamara_Rini.cs` -> Gestor de cámara, con rotación, aplicada con sensibilidad y suavizada.
 
+
+-`GestorPersistencia.cs` -> Serialización a binario para persistencia de datos sencillos. Modelo Singleton con atributos `[System.Serializable]` para indicar la clase con serialización.
+
+---
+
 ## Objetivos
+Crear un entorno donde comprobar las fortalezas del Charactercontroler, como interactua con rampas y gravedad a traves del codigo y no del sistema de fuerzas integrado de Unity, comprobar los ajustes para una mayor fluidez del sistema Cinemachine de Unity, comprobar la utilidad de un sistema serializado en binario en un entorno seguro, si bien se encuentra obsoleto es importante entender sus fortalezas para una pequeño sistema cerrado y un sistema para controlar visualmente la vida de los enemigos a traves de un canvas personalizado.
+
+
 -`RiniInput = new Vector3(horizontalMove, 0, verticalMove);` y `RiniInput = Vector3.ClampMagnitude(RiniInput, 1);` -> Movmiento direccional y evitamos que el personaje aumente su velocidad en sentido diagonal.
 
 
@@ -30,3 +41,21 @@ Demo técnica desarrolada en Unity 2019.4.12f1, testeo basico de interacciones e
 
 
 -`Player_Rini.transform.localRotation = Quaternion.AngleAxis(mouseMirar.x, Player_Rini.transform.up);` -> Resultado de, obtener las coordenadas del cursor, ver su movimiento, multiplicarlo por la sensibilidad, dividirlo en base a la suavidad, convertir los grados en rotción y hacer rotar al objeto en base a ello.
+
+
+-`FileStream file = File.Create(filePath);` -> Para la creación de un arhcivo `save.dat` y con `bf.Serialize(file, data);` guardamos la información serializada.
+
+
+-`DataPersistencia cargado = (DataPersistencia)bf.Deserialize(file);` -> Una vez comprobamos si existia un archivo `save.dat` podemos recuperar los datos almacenados, con una deserialización, desempaquetando los datos.
+
+
+-`GestorPersistencia.instancia.GuardarDataPersistencia();` -> Guardamos los datos, después de un cambio en los valores que se almacenan en la clase serializada, como `GestorPersistencia.instancia.data.Puntos = _Puntos;`, de nuestra instacia static accesible desde otros Scripts como `Aumentador.cs`.
+
+
+---
+## Version Jugable
+[Disponible en Itch.io] https://rhifumi.itch.io/rini-experimental
+
+---
+## Capturas
+![]()
