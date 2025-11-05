@@ -58,4 +58,18 @@ Crear un entorno donde comprobar las fortalezas del Charactercontroler, como int
 
 ---
 ## Capturas
-![]()
+![](Screenshots/RiniExperimental3.png)
+
+
+![](Screenshots/RiniExperimental2.png)
+
+
+![](Screenshots/RiniExperimental5.png)
+
+
+![](Screenshots/RiniExperimental6.png)
+
+
+
+
+
