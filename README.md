@@ -57,6 +57,10 @@ Crear un entorno donde comprobar las fortalezas del Charactercontroler, como int
 [Disponible en Itch.io] https://rhifumi.itch.io/rini-experimental
 
 ---
+## Video 
+[Disponible en Youtube] https://www.youtube.com/watch?v=Fdnt4SMgDqE
+
+---
 ## Capturas
 ![](Screenshots/RiniExperimental3.png)
 
